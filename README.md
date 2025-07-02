@@ -32,3 +32,35 @@ Otetumo Oluwaseun [Github: https://github.com/annyauthe4][email: annyauthe4@gmai
 Salu Oluwafikunayomi
 Gemechis Chala
 Alagbada Abiodun
+
+
+<h3> Issues </h3>
+During the cause of testing the created user model through the main file, the following error was generated upon running <code>$ python3 main.py</code>
+<code>
+  Traceback (most recent call last):
+  File "/home/annyauthe4/ALX/FixMyArea/backend/main.py", line 12, in <module>
+    app = create_app()
+  File "/home/annyauthe4/ALX/FixMyArea/backend/app/__init__.py", line 22, in create_app
+    from app.routes import register_routes
+ModuleNotFoundError: No module named 'app.routes'
+</code>
+## Solution
+ The routes directory was created and in its __init__.py file a placeholder function register_routes(app) was created to do nothing (pass)
+
+Upon running it the second time, another error was generated:
+<code>
+  File "/home/annyauthe4/.local/lib/python3.10/site-packages/sqlalchemy/orm/clsregistry.py", line 501, in _raise_for_name
+    raise exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: When initializing mapper Mapper[User(users)], expression 'Report' failed to locate a name ('Report'). If this is a class name, consider adding this relationship() to the <class 'app.models.user.User'> class after both dependent classes have been defined.
+</code>
+This error was as a result of the User model trying to define a relationship with the Report model.
+However, as at the time User is being imported, the Report model has not been loaded yet - circular import issue.
+
+# Solution
+Import the Report model inside the user.py file after defining User.
+Also ensure models __init__.py file imports all models correctly. This guarantees SQLAlchemy is aware of all models
+during migrations.
+
+At the 3rd running, the main.py file run successfully.
+
+Worthy of noting is that the built-in memory was used for testing the SQLite database.
