@@ -17,9 +17,6 @@ class User(BaseModel):
     password_hash = db.Column(db.String(256), nullable=False)
     is_admin = db.Column(db.Boolean, default=False)
 
-    # Relationship: One user can have many reports
-    reports = db.relationship('Report', backref='reporter', lazy=True)
-
     def __init__(self, name, email, password, is_admin=False):
         self.id = str(uuid.uuid4())  # Explicit UUID assignment
         self.name = name
@@ -43,4 +40,10 @@ class User(BaseModel):
             "email": self.email,
             "is_admin": self.is_admin
         })
-        return base 
+        return base
+
+# Import Report after class definition to avoid circular import
+from app.models.report import Report
+
+# Relationship: a user can have multiple reports
+User.reports = db.relationship('Report', backref='reporter', lazy=True)
