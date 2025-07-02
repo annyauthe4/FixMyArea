@@ -3,6 +3,10 @@
 """
 
 
+from .auth import auth_bp
+from .reports import report_bp
+
+
 def register_routes(app):
-    # Placeholder function
-    pass
+    app.register_blueprint(auth_bp)
+    app.register_blueprint(report_bp)
