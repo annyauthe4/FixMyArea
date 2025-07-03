@@ -1,7 +1,6 @@
-The following dependencies are required for the running of this web app:
-
 Flask
 Flask-SQLAlchemy
 Flask-Migrate
 python-dotenv
 Werkzeug
+flask-jwt-extended

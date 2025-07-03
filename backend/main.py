@@ -1,34 +1,36 @@
 #!/usr/bin/env python3
 """Main
 """
-
-
 from flask import Flask
-from app import db, create_app
+from app import create_app, storage
 from app.models.user import User
 
-
-# Use the application factory
 app = create_app()
 
-# Bind all models to db
 with app.app_context():
-    # Recreate the DB (for test purposes only; use migrations in real setup)
-    db.drop_all()
-    db.create_all()
+    user = User(name="John Doe", email="john@example.com", password_hash="secure456", is_admin=False)
+    storage.new(user)
+# Use the application factory
+# app = create_app()
 
-    # Test creating a user
-    print("✅ Creating new user...")
-    user = User(name="Jane Doe", email="jane@example.com", password="secure123", is_admin=True)
-    user.save()
+# # Bind all models to db
+# with app.app_context():
+#     # # Recreate the DB (for test purposes only; use migrations in real setup)
+#     # db.drop_all()
+#     # db.create_all()
 
-    print("📄 User saved to DB.")
-    print("🔑 Password correct:", user.check_password("secure123"))
-    print("❌ Password incorrect:", user.check_password("wrongpass"))
+#     # Test creating a user
+#     print("✅ Creating new user...")
+#     user = User(name="Jane Doe", email="jane@example.com", password="secure123", is_admin=True)
+#     user.save()
 
-    print("\n📦 Serialized user:")
-    print(user.to_dict())
+#     print("📄 User saved to DB.")
+#     print("🔑 Password correct:", user.check_password("secure123"))
+#     print("❌ Password incorrect:", user.check_password("wrongpass"))
 
-    # Cleanup
-    user.delete()
-    print("\n🗑️ User deleted from DB.")
+#     print("\n📦 Serialized user:")
+#     print(user.to_dict())
+
+#     # Cleanup
+#     user.delete()
+#     print("\n🗑️ User deleted from DB.")

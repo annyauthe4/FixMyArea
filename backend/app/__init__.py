@@ -9,6 +9,9 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
 from flask_jwt_extended import JWTManager
+from app.models.storage_engine.db_storage import DBStorage
+
+storage = DBStorage()
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -21,6 +24,7 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
+    storage.init_app(db)
 
     from app.routes import register_routes
     register_routes(app)

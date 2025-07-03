@@ -20,20 +20,27 @@ class BaseModel(db.Model):
         db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow
     )
 
-    def save(self):
-        """Save instance to the database."""
-        db.session.add(self)
-        db.session.commit()
+    # def save(self):
+    #     """Save instance to the database."""
+    #     db.session.add(self)
+    #     db.session.commit()
 
-    def delete(self):
-        """Delete instance from the database."""
-        db.session.delete(self)
-        db.session.commit()
+    # def delete(self):
+    #     """Delete instance from the database."""
+    #     db.session.delete(self)
+    #     db.session.commit()
 
     def to_dict(self):
         """Return dictionary representation of the object."""
-        return {
-            "id": self.id,
-            "created_at": self.created_at.isoformat(),
-            "updated_at": self.updated_at.isoformat(),
-        }
+        dictObj = self.__dict__
+        if '_sa_instance_state' in dictObj:
+            del dictObj['_sa_instance_state']
+        return dictObj
+        # return {
+        #     "id": self.id,
+        #     "created_at": self.created_at.isoformat(),
+        #     "updated_at": self.updated_at.isoformat(),
+        # }
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}.{self.id}:{self.__dict__}"

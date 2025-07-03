@@ -15,14 +15,14 @@ class Report(BaseModel):
     image_url = db.Column(db.String(255))
     user_id = db.Column(db.String(36), db.ForeignKey('users.id'), nullable=False)
 
-    def to_dict(self):
-        base = super().to_dict()
-        base.update({
-            "title": self.title,
-            "description": self.description,
-            "latitude": self.latitude,
-            "longitude": self.longitude,
-            "image_url": self.image_url,
-            "user_id": self.user_id
-        })
-        return base
+    # def to_dict(self):
+    #     base = super().to_dict()
+    #     base.update({
+    #         "title": self.title,
+    #         "description": self.description,
+    #         "latitude": self.latitude,
+    #         "longitude": self.longitude,
+    #         "image_url": self.image_url,
+    #         "user_id": self.user_id
+    #     })
+    #     return base

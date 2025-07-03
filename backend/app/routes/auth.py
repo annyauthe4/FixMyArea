@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """User registration and login authentication routes
 """
-
-
 from flask import Blueprint, request, jsonify
 from app.models.user import User
-from app import db
+from app import storage
 from flask_jwt_extended import create_access_token
+from app.utils.utils import set_password, check_password
 from datetime import timedelta
+
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/api/auth')
 
-@auth_bp.route('/register', methods=['POST'])
+@auth_bp.route('/register', methods=['POST'], strict_slashes=False)
 def register():
     data = request.get_json()
     if not data or not all(k in data for k in ('name', 'email', 'password')):
@@ -23,9 +23,9 @@ def register():
     user = User(
         name=data['name'],
         email=data['email'],
-        password=data['password']
+        password_hash=set_password(data['password'])
     )
-    user.save()
+    storage.new(user)
     return jsonify(user.to_dict()), 201
 
 @auth_bp.route('/login', methods=['POST'])
@@ -35,7 +35,7 @@ def login():
         return jsonify({'error': 'Missing credentials'}), 400
 
     user = User.query.filter_by(email=data['email']).first()
-    if not user or not user.check_password(data['password']):
+    if not user or not check_password(user.password_hash, data['password']):
         return jsonify({'error': 'Invalid credentials'}), 401
 
     token = create_access_token(

@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 """Report submission and listing routes
 """
-
-
 from flask import Blueprint, request, jsonify
 from app.models.report import Report
-from app import db
+from app import storage 
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from app.utils.decorators import admin_required
 
@@ -29,7 +27,7 @@ def create_report():
         image_url=data.get('image_url', ''),
         user_id=current_user_id
     )
-    report.save()
+    storage.new(report)
     return jsonify(report.to_dict()), 201
 
 @report_bp.route('/', methods=['GET'])
