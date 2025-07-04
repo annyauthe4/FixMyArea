@@ -173,7 +173,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Otetumo Oluwaseun** - [GitHub](https://github.com/annyauthe4) | [Email](mailto:annyauthe4@gmail.com) | [Twitter](https://twitter.com/annyauthe4) - Backend Developer
 - **Salu Oluwafikunayomi** - Backend Developer
 - **Gemechis Chala** -  - [GitHub](https://github.com/venopyx) | [Email](mailto:gladsonchala@gmail.com) | [Twitter](https://twitter.com/venopyx) - Frontend Developer
-- **Alagbada Abiodun** - Frontend Developer
+- **Alagbada Abiodun** - - [GitHub](https://github.com/Alagbada123) | [Email](mailto:abiodunalagbada@gmail.com) | [Twitter](https://twitter.com/ABIODUNALAGBAD1) - Frontend Developer
 
 ## 📞 Support
 
