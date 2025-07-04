@@ -64,7 +64,7 @@
 
         <div class="flex items-center space-x-4">
           <router-link
-            to="/auth/login"
+            to="/auth"
             class="inline-flex items-center gap-1 border-2 border-blue-900 text-blue-900 bg-white px-6 py-2 rounded-full font-semibold shadow hover:bg-blue-50 hover:text-blue-700 hover:border-blue-700 hover:scale-105 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-200"
           >
             <svg
@@ -161,7 +161,7 @@
           </a>
           <div class="border-t pt-2">
             <router-link
-              to="/auth/login"
+              to="/auth"
               class="block px-3 py-2 rounded-full border-2 border-blue-900 text-blue-900 bg-white font-semibold shadow hover:bg-blue-50 hover:text-blue-700 hover:border-blue-700 hover:scale-105 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-200 inline-flex items-center gap-1"
             >
               <svg
