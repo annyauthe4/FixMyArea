@@ -1,77 +1,198 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="FixMyArea is a community-driven platform empowering citizens to report and track local infrastructure issues"
-    />
-    <meta
-      name="keywords"
-      content="FixMyArea, infrastructure, community, reporting, tracking, local government"
-    />
-    <meta
-      name="author"
-      content="Otetumo Oluwaseun, Salu Oluwafikunayomi, Gemechis Chala, Alagbada Abiodun"
-    />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>FixMyArea - Report Local Issues. Improve Your Community.</title>
+		<link rel="stylesheet" href="./css/index.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar">
+			<div class="nav-container">
+				<div class="nav-logo">
+					<img
+						src="/placeholder.svg?height=40&width=40"
+						alt="FixMyArea Logo"
+						class="logo-icon"
+					/>
+					<span class="logo-text">FixMyArea</span>
+				</div>
+				<div class="nav-links">
+					<a href="#" class="nav-link">Login</a>
+					<a href="#" class="nav-link nav-signup">Sign Up</a>
+				</div>
+				<button class="mobile-menu-btn" id="mobileMenuBtn">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</nav>
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://fixmyarea.com/" />
-    <meta property="og:title" content="FixMyArea - Community Infrastructure Reporting Platform" />
-    <meta
-      property="og:description"
-      content="Empower your community by reporting and tracking local infrastructure issues. Join citizens in making your area better."
-    />
-    <meta property="og:image" content="https://fixmyarea.com/og-image.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta
-      property="og:image:alt"
-      content="FixMyArea - Community Infrastructure Reporting Platform"
-    />
-    <meta property="og:site_name" content="FixMyArea" />
-    <meta property="og:locale" content="en_US" />
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="hero-container">
+				<div class="hero-content">
+					<h1 class="hero-title">Report Local Issues. Improve Your Community.</h1>
+					<p class="hero-subtitle">
+						FixMyArea connects you directly to your local government — report, track,
+						and resolve public problems easily.
+					</p>
+					<button class="cta-button">Report an Issue</button>
+				</div>
+				<div class="hero-image">
+					<img
+						src="/placeholder.svg?height=400&width=500"
+						alt="Community engagement illustration"
+						class="hero-img"
+					/>
+				</div>
+			</div>
+		</section>
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://fixmyarea.com/" />
-    <meta
-      property="twitter:title"
-      content="FixMyArea - Community Infrastructure Reporting Platform"
-    />
-    <meta
-      property="twitter:description"
-      content="Empower your community by reporting and tracking local infrastructure issues. Join citizens in making your area better."
-    />
-    <meta property="twitter:image" content="https://fixmyarea.com/og-image.jpg" />
-    <meta
-      property="twitter:image:alt"
-      content="FixMyArea - Community Infrastructure Reporting Platform"
-    />
+		<!-- Process Section -->
+		<section class="process">
+			<div class="process-container">
+				<h2 class="process-title">How It Works</h2>
+				<div class="process-steps">
+					<div class="step">
+						<div class="step-icon">
+							<img
+								src="/placeholder.svg?height=60&width=60"
+								alt="Submit icon"
+								class="step-img"
+							/>
+						</div>
+						<h3 class="step-title">Submit</h3>
+						<p class="step-description">
+							Fill out a simple form with details about the issue in your area
+						</p>
+					</div>
+					<div class="step">
+						<div class="step-icon">
+							<img
+								src="/placeholder.svg?height=60&width=60"
+								alt="Track icon"
+								class="step-img"
+							/>
+						</div>
+						<h3 class="step-title">Track</h3>
+						<p class="step-description">
+							Get real-time updates on your report as it moves through the system
+						</p>
+					</div>
+					<div class="step">
+						<div class="step-icon">
+							<img
+								src="/placeholder.svg?height=60&width=60"
+								alt="Resolved icon"
+								class="step-img"
+							/>
+						</div>
+						<h3 class="step-title">Resolved</h3>
+						<p class="step-description">
+							Watch your community improve as issues get fixed
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <!-- Additional SEO -->
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
-    <link rel="canonical" href="https://fixmyarea.com/" />
+		<!-- Testimonials Section -->
+		<section class="testimonials">
+			<div class="testimonials-container">
+				<h2 class="testimonials-title">Trusted by Communities</h2>
+				<div class="testimonials-grid">
+					<div class="testimonial">
+						<p class="testimonial-text">
+							"FixMyArea helped me report a dangerous pothole on my street. It was
+							fixed within a week!"
+						</p>
+						<div class="testimonial-author">
+							<img
+								src="/placeholder.svg?height=50&width=50"
+								alt="Sarah Johnson"
+								class="author-avatar"
+							/>
+							<div class="author-info">
+								<span class="author-name">Sarah Johnson</span>
+								<span class="author-title">Local Resident</span>
+							</div>
+						</div>
+					</div>
+					<div class="testimonial">
+						<p class="testimonial-text">
+							"This platform has streamlined our response process and improved
+							communication with residents."
+						</p>
+						<div class="testimonial-author">
+							<img
+								src="/placeholder.svg?height=50&width=50"
+								alt="Mike Chen"
+								class="author-avatar"
+							/>
+							<div class="author-info">
+								<span class="author-name">Mike Chen</span>
+								<span class="author-title">City Official</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <!-- Theme and Color -->
-    <meta name="theme-color" content="#3B82F6" />
-    <meta name="msapplication-TileColor" content="#3B82F6" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="FixMyArea" />
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="footer-container">
+				<div class="footer-content">
+					<div class="footer-logo">
+						<img
+							src="/placeholder.svg?height=32&width=32"
+							alt="FixMyArea Logo"
+							class="footer-logo-icon"
+						/>
+						<span class="footer-logo-text">FixMyArea</span>
+					</div>
+					<div class="footer-links">
+						<a href="#" class="footer-link">About</a>
+						<a href="#" class="footer-link">Contact</a>
+						<a href="#" class="footer-link">Privacy</a>
+					</div>
+					<div class="footer-social">
+						<a href="#" class="social-link">
+							<img
+								src="/placeholder.svg?height=24&width=24"
+								alt="Twitter"
+								class="social-icon"
+							/>
+						</a>
+						<a href="#" class="social-link">
+							<img
+								src="/placeholder.svg?height=24&width=24"
+								alt="Facebook"
+								class="social-icon"
+							/>
+						</a>
+						<a href="#" class="social-link">
+							<img
+								src="/placeholder.svg?height=24&width=24"
+								alt="LinkedIn"
+								class="social-icon"
+							/>
+						</a>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<p class="footer-copyright">© 2024 FixMyArea. All rights reserved.</p>
+				</div>
+			</div>
+		</footer>
 
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <title>FixMyArea - Community Infrastructure Reporting Platform</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+		<script src="./dist/index.js"></script>
+	</body>
 </html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sign Up - FixMyArea</title>
+		<link rel="stylesheet" href="./css/sign-up.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- Font Awesome for icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+		/>
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar">
+			<div class="nav-container">
+				<div class="nav-logo">
+					<img
+						src="/placeholder.svg?height=40&width=40"
+						alt="FixMyArea Logo"
+						class="logo-icon"
+					/>
+					<span class="logo-text">FixMyArea</span>
+				</div>
+				<div class="nav-links">
+					<a href="#" class="nav-link">Login</a>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Main Content -->
+		<main class="main-content">
+			<div class="signup-container">
+				<!-- Left Side - Form -->
+				<div class="form-section">
+					<div class="form-card">
+						<div class="form-header">
+							<h1 class="form-title">Create Your Account</h1>
+							<p class="form-subtitle">
+								Join your community in making local improvements
+							</p>
+						</div>
+
+						<form class="signup-form" id="signupForm">
+							<div class="form-group">
+								<label for="fullName" class="form-label">Full Name</label>
+								<div class="input-wrapper">
+									<i class="fas fa-user input-icon"></i>
+									<input
+										type="text"
+										id="fullName"
+										name="fullName"
+										class="form-input"
+										placeholder="Enter your full name"
+										required
+										aria-describedby="fullName-error"
+									/>
+								</div>
+								<span class="error-message" id="fullName-error"></span>
+							</div>
+
+							<div class="form-group">
+								<label for="email" class="form-label">Email Address</label>
+								<div class="input-wrapper">
+									<i class="fas fa-envelope input-icon"></i>
+									<input
+										type="email"
+										id="email"
+										name="email"
+										class="form-input"
+										placeholder="Enter your email address"
+										required
+										aria-describedby="email-error"
+									/>
+								</div>
+								<span class="error-message" id="email-error"></span>
+							</div>
+
+							<div class="form-group">
+								<label for="phone" class="form-label">Phone Number</label>
+								<div class="input-wrapper">
+									<i class="fas fa-phone input-icon"></i>
+									<input
+										type="tel"
+										id="phone"
+										name="phone"
+										class="form-input"
+										placeholder="Enter your phone number"
+										required
+										aria-describedby="phone-error"
+									/>
+								</div>
+								<span class="error-message" id="phone-error"></span>
+							</div>
+
+							<div class="form-group">
+								<label for="password" class="form-label">Password</label>
+								<div class="input-wrapper">
+									<i class="fas fa-lock input-icon"></i>
+									<input
+										type="password"
+										id="password"
+										name="password"
+										class="form-input"
+										placeholder="Create a strong password"
+										required
+										aria-describedby="password-error"
+									/>
+									<button type="button" class="password-toggle" id="passwordToggle">
+										<i class="fas fa-eye"></i>
+									</button>
+								</div>
+								<span class="error-message" id="password-error"></span>
+							</div>
+
+							<div class="form-group">
+								<label for="confirmPassword" class="form-label">Confirm Password</label>
+								<div class="input-wrapper">
+									<i class="fas fa-lock input-icon"></i>
+									<input
+										type="password"
+										id="confirmPassword"
+										name="confirmPassword"
+										class="form-input"
+										placeholder="Confirm your password"
+										required
+										aria-describedby="confirmPassword-error"
+									/>
+									<button
+										type="button"
+										class="password-toggle"
+										id="confirmPasswordToggle"
+									>
+										<i class="fas fa-eye"></i>
+									</button>
+								</div>
+								<span class="error-message" id="confirmPassword-error"></span>
+							</div>
+
+							<div class="form-group checkbox-group">
+								<label class="checkbox-label">
+									<input
+										type="checkbox"
+										id="terms"
+										name="terms"
+										class="checkbox-input"
+										required
+									/>
+									<span class="checkbox-custom"></span>
+									<span class="checkbox-text">
+										I agree to the <a href="#" class="terms-link">Terms of Service</a> and
+										<a href="#" class="terms-link">Privacy Policy</a>
+									</span>
+								</label>
+							</div>
+
+							<button type="submit" class="submit-button">
+								<span class="button-text">Create Account</span>
+								<i class="fas fa-arrow-right button-icon"></i>
+							</button>
+						</form>
+
+						<div class="form-footer">
+							<p class="login-prompt">
+								Already have an account?
+								<a href="#" class="login-link">Login</a>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Right Side - Illustration -->
+				<div class="illustration-section">
+					<div class="illustration-content">
+						<img
+							src="/placeholder.svg?height=400&width=350"
+							alt="Person reporting issue on phone"
+							class="illustration-image"
+						/>
+						<div class="illustration-text">
+							<h3 class="illustration-title">Make a Difference</h3>
+							<p class="illustration-description">
+								Report issues, track progress, and help improve your community with just
+								a few clicks.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
