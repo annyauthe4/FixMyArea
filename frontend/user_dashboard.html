@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dashboard - FixMyArea</title>
+		<link rel="stylesheet" href="./css/user_dashboard.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- Font Awesome for icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+		/>
+	</head>
+	<body>
+		<!-- Sidebar Navigation -->
+		<nav class="sidebar" id="sidebar">
+			<div class="sidebar-header">
+				<div class="logo">
+					<img
+						src="/placeholder.svg?height=40&width=40"
+						alt="FixMyArea Logo"
+						class="logo-icon"
+					/>
+					<span class="logo-text">FixMyArea</span>
+				</div>
+				<button class="sidebar-toggle" id="sidebarToggle">
+					<i class="fas fa-times"></i>
+				</button>
+			</div>
+
+			<div class="sidebar-content">
+				<div class="user-profile">
+					<img
+						src="/placeholder.svg?height=50&width=50"
+						alt="User Avatar"
+						class="user-avatar"
+					/>
+					<div class="user-info">
+						<span class="user-name">Sarah Johnson</span>
+						<span class="user-email">sarah@email.com</span>
+					</div>
+				</div>
+
+				<ul class="nav-menu">
+					<li class="nav-item active">
+						<a href="#" class="nav-link">
+							<i class="fas fa-tachometer-alt nav-icon"></i>
+							<span>Dashboard</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="fas fa-plus-circle nav-icon"></i>
+							<span>Report an Issue</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="fas fa-file-alt nav-icon"></i>
+							<span>My Reports</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="fas fa-user nav-icon"></i>
+							<span>Profile</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="fas fa-cog nav-icon"></i>
+							<span>Settings</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="sidebar-footer">
+				<a href="#" class="logout-link">
+					<i class="fas fa-sign-out-alt"></i>
+					<span>Logout</span>
+				</a>
+			</div>
+		</nav>
+
+		<!-- Main Content -->
+		<main class="main-content">
+			<!-- Top Navigation -->
+			<header class="top-nav">
+				<button class="mobile-menu-btn" id="mobileMenuBtn">
+					<i class="fas fa-bars"></i>
+				</button>
+				<div class="nav-actions">
+					<button class="notification-btn">
+						<i class="fas fa-bell"></i>
+						<span class="notification-badge">3</span>
+					</button>
+				</div>
+			</header>
+
+			<!-- Dashboard Content -->
+			<div class="dashboard-content">
+				<!-- Welcome Header -->
+				<div class="welcome-section">
+					<h1 class="welcome-title">Welcome back, Sarah! 👋</h1>
+					<p class="welcome-subtitle">
+						Here's what's happening with your community reports
+					</p>
+				</div>
+
+				<!-- Summary Cards -->
+				<div class="summary-section">
+					<div class="summary-card total">
+						<div class="card-icon">
+							<i class="fas fa-clipboard-list"></i>
+						</div>
+						<div class="card-content">
+							<h3 class="card-number">12</h3>
+							<p class="card-label">Total Reports</p>
+						</div>
+					</div>
+
+					<div class="summary-card resolved">
+						<div class="card-icon">
+							<i class="fas fa-check-circle"></i>
+						</div>
+						<div class="card-content">
+							<h3 class="card-number">8</h3>
+							<p class="card-label">Resolved</p>
+						</div>
+					</div>
+
+					<div class="summary-card pending">
+						<div class="card-icon">
+							<i class="fas fa-clock"></i>
+						</div>
+						<div class="card-content">
+							<h3 class="card-number">3</h3>
+							<p class="card-label">Pending</p>
+						</div>
+					</div>
+
+					<div class="summary-card rejected">
+						<div class="card-icon">
+							<i class="fas fa-times-circle"></i>
+						</div>
+						<div class="card-content">
+							<h3 class="card-number">1</h3>
+							<p class="card-label">Rejected</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Report New Issue Button -->
+				<div class="report-button-section">
+					<button class="report-issue-btn">
+						<i class="fas fa-map-marker-alt btn-icon"></i>
+						<span class="btn-text">Report an Issue</span>
+						<i class="fas fa-arrow-right btn-arrow"></i>
+					</button>
+				</div>
+
+				<!-- Recent Reports -->
+				<section class="recent-reports">
+					<div class="section-header">
+						<h2 class="section-title">Recent Reports</h2>
+						<a href="#" class="view-all-link">View All</a>
+					</div>
+
+					<div class="reports-grid">
+						<div class="report-card">
+							<div class="report-header">
+								<h3 class="report-title">Broken Streetlight on Oak Street</h3>
+								<span class="status-badge pending">Pending</span>
+							</div>
+							<div class="report-meta">
+								<span class="report-category">
+									<i class="fas fa-lightbulb"></i>
+									Street Lighting
+								</span>
+								<span class="report-date">2 days ago</span>
+							</div>
+							<button class="view-btn">View Details</button>
+						</div>
+
+						<div class="report-card">
+							<div class="report-header">
+								<h3 class="report-title">Pothole on Main Avenue</h3>
+								<span class="status-badge resolved">Resolved</span>
+							</div>
+							<div class="report-meta">
+								<span class="report-category">
+									<i class="fas fa-road"></i>
+									Road Maintenance
+								</span>
+								<span class="report-date">1 week ago</span>
+							</div>
+							<button class="view-btn">View Details</button>
+						</div>
+
+						<div class="report-card">
+							<div class="report-header">
+								<h3 class="report-title">Overflowing Trash Bin</h3>
+								<span class="status-badge in-progress">In Progress</span>
+							</div>
+							<div class="report-meta">
+								<span class="report-category">
+									<i class="fas fa-trash"></i>
+									Waste Management
+								</span>
+								<span class="report-date">3 days ago</span>
+							</div>
+							<button class="view-btn">View Details</button>
+						</div>
+					</div>
+				</section>
+
+				<!-- All Reports Table -->
+				<section class="all-reports">
+					<div class="section-header">
+						<h2 class="section-title">All Reports</h2>
+						<div class="table-filters">
+							<select class="filter-select">
+								<option>All Categories</option>
+								<option>Road Maintenance</option>
+								<option>Street Lighting</option>
+								<option>Waste Management</option>
+							</select>
+							<select class="filter-select">
+								<option>All Status</option>
+								<option>Pending</option>
+								<option>In Progress</option>
+								<option>Resolved</option>
+								<option>Rejected</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="table-container">
+						<table class="reports-table">
+							<thead>
+								<tr>
+									<th>Title</th>
+									<th>Category</th>
+									<th>Status</th>
+									<th>Date Submitted</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="report-title-cell">Broken Streetlight on Oak Street</td>
+									<td>
+										<span class="category-tag">
+											<i class="fas fa-lightbulb"></i>
+											Street Lighting
+										</span>
+									</td>
+									<td><span class="status-badge pending">Pending</span></td>
+									<td>Dec 15, 2024</td>
+									<td><button class="table-view-btn">View Details</button></td>
+								</tr>
+								<tr>
+									<td class="report-title-cell">Overflowing Trash Bin</td>
+									<td>
+										<span class="category-tag">
+											<i class="fas fa-trash"></i>
+											Waste Management
+										</span>
+									</td>
+									<td><span class="status-badge in-progress">In Progress</span></td>
+									<td>Dec 14, 2024</td>
+									<td><button class="table-view-btn">View Details</button></td>
+								</tr>
+								<tr>
+									<td class="report-title-cell">Pothole on Main Avenue</td>
+									<td>
+										<span class="category-tag">
+											<i class="fas fa-road"></i>
+											Road Maintenance
+										</span>
+									</td>
+									<td><span class="status-badge resolved">Resolved</span></td>
+									<td>Dec 10, 2024</td>
+									<td><button class="table-view-btn">View Details</button></td>
+								</tr>
+								<tr>
+									<td class="report-title-cell">Water Leak on Pine Street</td>
+									<td>
+										<span class="category-tag">
+											<i class="fas fa-tint"></i>
+											Water/Utilities
+										</span>
+									</td>
+									<td><span class="status-badge resolved">Resolved</span></td>
+									<td>Dec 8, 2024</td>
+									<td><button class="table-view-btn">View Details</button></td>
+								</tr>
+								<tr>
+									<td class="report-title-cell">Graffiti on Public Building</td>
+									<td>
+										<span class="category-tag">
+											<i class="fas fa-building"></i>
+											Vandalism
+										</span>
+									</td>
+									<td><span class="status-badge rejected">Rejected</span></td>
+									<td>Dec 5, 2024</td>
+									<td><button class="table-view-btn">View Details</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<!-- Mobile Overlay -->
+		<div class="mobile-overlay" id="mobileOverlay"></div>
+
+		<script src="dashboard-script.ts"></script>
+	</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login - FixMyArea</title>
+		<link rel="stylesheet" href="./css/login.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- Font Awesome for icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+		/>
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar">
+			<div class="nav-container">
+				<div class="nav-logo">
+					<img
+						src="/placeholder.svg?height=40&width=40"
+						alt="FixMyArea Logo"
+						class="logo-icon"
+					/>
+					<span class="logo-text">FixMyArea</span>
+				</div>
+				<div class="nav-links">
+					<a href="#" class="nav-link nav-signup">Sign Up</a>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Main Content -->
+		<main class="main-content">
+			<div class="login-container">
+				<div class="login-card">
+					<!-- Header -->
+					<div class="login-header">
+						<div class="header-icon">
+							<i class="fas fa-shield-alt"></i>
+						</div>
+						<h1 class="login-title">Welcome Back</h1>
+						<p class="login-subtitle">Sign in to your FixMyArea account</p>
+					</div>
+
+					<!-- Login Form -->
+					<form class="login-form" id="loginForm">
+						<div class="form-group">
+							<label for="email" class="form-label">Email Address</label>
+							<div class="input-wrapper">
+								<i class="fas fa-envelope input-icon"></i>
+								<input
+									type="email"
+									id="email"
+									name="email"
+									class="form-input"
+									placeholder="Enter your email address"
+									required
+									aria-describedby="email-error"
+								/>
+							</div>
+							<span class="error-message" id="email-error"></span>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="form-label">Password</label>
+							<div class="input-wrapper">
+								<i class="fas fa-lock input-icon"></i>
+								<input
+									type="password"
+									id="password"
+									name="password"
+									class="form-input"
+									placeholder="Enter your password"
+									required
+									aria-describedby="password-error"
+								/>
+								<button type="button" class="password-toggle" id="passwordToggle">
+									<i class="fas fa-eye"></i>
+								</button>
+							</div>
+							<span class="error-message" id="password-error"></span>
+						</div>
+
+						<!-- Remember Me & Forgot Password -->
+						<div class="form-options">
+							<label class="remember-label">
+								<input
+									type="checkbox"
+									id="remember"
+									name="remember"
+									class="checkbox-input"
+								/>
+								<span class="checkbox-custom"></span>
+								<span class="checkbox-text">Remember me</span>
+							</label>
+							<a href="#" class="forgot-link">Forgot password?</a>
+						</div>
+
+						<!-- Submit Button -->
+						<button type="submit" class="login-button">
+							<span class="button-text">Login</span>
+							<i class="fas fa-arrow-right button-icon"></i>
+						</button>
+					</form>
+
+					<!-- Footer -->
+					<div class="login-footer">
+						<p class="signup-prompt">
+							Don't have an account?
+							<a href="#" class="signup-link">Sign Up</a>
+						</p>
+					</div>
+				</div>
+
+				<!-- Trust Indicators -->
+				<div class="trust-section">
+					<div class="trust-item">
+						<i class="fas fa-lock trust-icon"></i>
+						<span class="trust-text">Secure & Encrypted</span>
+					</div>
+					<div class="trust-item">
+						<i class="fas fa-users trust-icon"></i>
+						<span class="trust-text">Trusted by Communities</span>
+					</div>
+					<div class="trust-item">
+						<i class="fas fa-shield-check trust-icon"></i>
+						<span class="trust-text">Government Verified</span>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
