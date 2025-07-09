@@ -10,6 +10,7 @@ from flask_migrate import Migrate
 from config import Config
 from flask_jwt_extended import JWTManager
 from app.models.storage_engine.db_storage import DBStorage
+import os
 
 storage = DBStorage()
 
@@ -20,6 +21,9 @@ jwt = JWTManager()
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
+
+    # Create uploads folder if it doesn't exist
+    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
     db.init_app(app)
     migrate.init_app(app, db)
