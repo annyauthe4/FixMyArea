@@ -12,33 +12,9 @@ class User(BaseModel):
 
     name = db.Column(db.String(128), nullable=False)
     email = db.Column(db.String(128), unique=True, nullable=False)
-    password_hash = db.Column(db.String(256), nullable=False)
+    password = db.Column(db.String(256), nullable=False)
     is_admin = db.Column(db.Boolean, default=False)
 
-    # def __init__(self, name, email, password, is_admin=False):
-    #     self.id = str(uuid.uuid4())  # Explicit UUID assignment
-    #     self.name = name
-    #     self.email = email
-    #     self.set_password(password)
-    #     self.is_admin = is_admin
-
-    # def set_password(self, password):
-    #     """Hashes and sets the user password."""
-    #     self.password_hash = generate_password_hash(password)
-
-    # def check_password(self, password):
-    #     """Verifies if password matches the hash."""
-    #     return check_password_hash(self.password_hash, password)
-
-    # def to_dict(self):
-    #     """Returns a dictionary representation of the user (excluding password)."""
-    #     base = super().to_dict()
-    #     base.update({
-    #         "name": self.name,
-    #         "email": self.email,
-    #         "is_admin": self.is_admin
-    #     })
-    #     return base
 
 # Import Report after class definition to avoid circular import
 from app.models.report import Report

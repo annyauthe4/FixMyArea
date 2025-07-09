@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 def set_password(password):
     """Hashes and sets the user password."""
-    password_hash = generate_password_hash(password)
+    return generate_password_hash(password)
 
 def check_password(password_hash, password):
     """Verifies if password matches the hash."""

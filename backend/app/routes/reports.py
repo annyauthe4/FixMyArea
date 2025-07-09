@@ -3,15 +3,17 @@
 """
 from flask import Blueprint, request, jsonify
 from app.models.report import Report
-from app import storage 
+from app import storage
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from app.utils.decorators import admin_required
 
 report_bp = Blueprint('reports', __name__, url_prefix='/api/reports')
 
-@report_bp.route('/', methods=['POST'])
+
+@report_bp.route('/', methods=['POST'], strict_slashes=False)
 @jwt_required()
 def create_report():
+    "A user creates a report"
     current_user_id = get_jwt_identity()
 
     data = request.get_json()
@@ -30,11 +32,10 @@ def create_report():
     storage.new(report)
     return jsonify(report.to_dict()), 201
 
-@report_bp.route('/', methods=['GET'])
+
+@report_bp.route('/', methods=['GET'], strict_slashes=False)
 @jwt_required()
 @admin_required
 def list_reports():
     reports = Report.query.all()
     return jsonify([r.to_dict() for r in reports]), 200
-
-

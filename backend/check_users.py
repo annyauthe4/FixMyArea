@@ -4,6 +4,7 @@
 
 from app import create_app, db
 from app.models.user import User
+from flask import jsonify
 
 app = create_app()
 
@@ -11,4 +12,4 @@ app = create_app()
 with app.app_context():
     users = User.query.all()
     for user in users:
-        print(user.to_dict())
+        print((user.to_dict()))
