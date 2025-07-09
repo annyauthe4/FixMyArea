@@ -11,6 +11,7 @@ from datetime import timedelta
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/api/auth')
 
+
 @auth_bp.route('/register', methods=['POST'], strict_slashes=False)
 def register():
     data = request.get_json()
@@ -23,10 +24,12 @@ def register():
     user = User(
         name=data['name'],
         email=data['email'],
-        password_hash=set_password(data['password'])
+        password=set_password(data['password'])
     )
     storage.new(user)
+    storage.save()
     return jsonify(user.to_dict()), 201
+
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
@@ -35,7 +38,7 @@ def login():
         return jsonify({'error': 'Missing credentials'}), 400
 
     user = User.query.filter_by(email=data['email']).first()
-    if not user or not check_password(user.password_hash, data['password']):
+    if not user or not check_password(user.password, data['password']):
         return jsonify({'error': 'Invalid credentials'}), 401
 
     token = create_access_token(

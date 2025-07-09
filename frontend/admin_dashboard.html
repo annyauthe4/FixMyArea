@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Admin Dashboard - FixMyArea</title>
+		<link rel="stylesheet" href="./css/admin_dashboard.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- Font Awesome for icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+		/>
+	</head>
+	<body>
+		<!-- Sidebar Navigation -->
+		<nav class="sidebar" id="sidebar">
+			<div class="sidebar-header">
+				<div class="logo">
+					<img
+						src="/placeholder.svg?height=40&width=40"
+						alt="FixMyArea Logo"
+						class="logo-icon"
+					/>
+					<span class="logo-text">FixMyArea</span>
+					<span class="admin-badge">Admin</span>
+				</div>
+				<button class="sidebar-toggle" id="sidebarToggle">
+					<i class="fas fa-times"></i>
+				</button>
+			</div>
+
+			<div class="sidebar-content">
+				<div class="admin-profile">
+					<img
+						src="/placeholder.svg?height=50&width=50"
+						alt="Admin Avatar"
+						class="admin-avatar"
+					/>
+					<div class="admin-info">
+						<span class="admin-name">City Administrator</span>
+						<span class="admin-role">Springfield City Hall</span>
+					</div>
+				</div>
+
+				<ul class="nav-menu">
+					<li class="nav-item active">
+						<a href="#" class="nav-link">
+							<i class="fas fa-tachometer-alt nav-icon"></i>
+							<span>Dashboard Home</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="fas fa-clipboard-list nav-icon"></i>
+							<span>All Reports</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="fas fa-tags nav-icon"></i>
+							<span>Categories</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="fas fa-chart-bar nav-icon"></i>
+							<span>Analytics</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="fas fa-cog nav-icon"></i>
+							<span>Settings</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="sidebar-footer">
+				<a href="#" class="logout-link">
+					<i class="fas fa-sign-out-alt"></i>
+					<span>Logout</span>
+				</a>
+			</div>
+		</nav>
+
+		<!-- Main Content -->
+		<main class="main-content">
+			<!-- Top Navigation -->
+			<header class="top-nav">
+				<button class="mobile-menu-btn" id="mobileMenuBtn">
+					<i class="fas fa-bars"></i>
+				</button>
+				<div class="nav-title">
+					<h1>Admin Dashboard</h1>
+					<p>Manage community reports and responses</p>
+				</div>
+				<div class="nav-actions">
+					<button class="notification-btn">
+						<i class="fas fa-bell"></i>
+						<span class="notification-badge">7</span>
+					</button>
+				</div>
+			</header>
+
+			<!-- Dashboard Content -->
+			<div class="dashboard-content">
+				<!-- Summary Cards -->
+				<div class="summary-section">
+					<div class="summary-card total">
+						<div class="card-icon">
+							<i class="fas fa-clipboard-list"></i>
+						</div>
+						<div class="card-content">
+							<h3 class="card-number">247</h3>
+							<p class="card-label">Total Reports</p>
+							<span class="card-trend">+12 this week</span>
+						</div>
+					</div>
+
+					<div class="summary-card pending">
+						<div class="card-icon">
+							<i class="fas fa-clock"></i>
+						</div>
+						<div class="card-content">
+							<h3 class="card-number">23</h3>
+							<p class="card-label">Pending</p>
+							<span class="card-trend">Needs attention</span>
+						</div>
+					</div>
+
+					<div class="summary-card in-progress">
+						<div class="card-icon">
+							<i class="fas fa-tools"></i>
+						</div>
+						<div class="card-content">
+							<h3 class="card-number">18</h3>
+							<p class="card-label">In Progress</p>
+							<span class="card-trend">Being resolved</span>
+						</div>
+					</div>
+
+					<div class="summary-card resolved">
+						<div class="card-icon">
+							<i class="fas fa-check-circle"></i>
+						</div>
+						<div class="card-content">
+							<h3 class="card-number">206</h3>
+							<p class="card-label">Resolved</p>
+							<span class="card-trend">83% completion</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Filters and Search -->
+				<div class="filters-section">
+					<div class="search-bar">
+						<i class="fas fa-search search-icon"></i>
+						<input type="text" placeholder="Search reports..." class="search-input" />
+					</div>
+					<div class="filter-controls">
+						<select class="filter-select">
+							<option>All Categories</option>
+							<option>Road Maintenance</option>
+							<option>Street Lighting</option>
+							<option>Water/Utilities</option>
+							<option>Waste Management</option>
+							<option>Parks & Recreation</option>
+						</select>
+						<select class="filter-select">
+							<option>All Status</option>
+							<option>Pending</option>
+							<option>In Progress</option>
+							<option>Resolved</option>
+							<option>Rejected</option>
+						</select>
+						<select class="filter-select">
+							<option>Last 30 days</option>
+							<option>Last 7 days</option>
+							<option>Today</option>
+							<option>Custom range</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- Reports Table -->
+				<div class="reports-section">
+					<div class="section-header">
+						<h2 class="section-title">All Reports</h2>
+						<div class="table-actions">
+							<button class="export-btn">
+								<i class="fas fa-download"></i>
+								Export
+							</button>
+						</div>
+					</div>
+
+					<div class="table-container">
+						<table class="reports-table">
+							<thead>
+								<tr>
+									<th>Report ID</th>
+									<th>Issue Title</th>
+									<th>Category</th>
+									<th>Location</th>
+									<th>Status</th>
+									<th>Submitted</th>
+									<th>Priority</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="report-id">#2024-001</td>
+									<td class="report-title">Broken streetlight on Oak Street</td>
+									<td>
+										<span class="category-tag lighting">
+											<i class="fas fa-lightbulb"></i>
+											Street Lighting
+										</span>
+									</td>
+									<td class="location">Oak St & 5th Ave</td>
+									<td><span class="status-badge pending">Pending</span></td>
+									<td>Dec 15, 2024</td>
+									<td><span class="priority-badge high">High</span></td>
+									<td>
+										<button class="action-btn view-details" data-report-id="2024-001">
+											View Details
+										</button>
+									</td>
+								</tr>
+								<tr>
+									<td class="report-id">#2024-002</td>
+									<td class="report-title">Large pothole causing traffic issues</td>
+									<td>
+										<span class="category-tag roads">
+											<i class="fas fa-road"></i>
+											Road Maintenance
+										</span>
+									</td>
+									<td class="location">Main Ave near City Hall</td>
+									<td><span class="status-badge in-progress">In Progress</span></td>
+									<td>Dec 14, 2024</td>
+									<td><span class="priority-badge high">High</span></td>
+									<td>
+										<button class="action-btn view-details" data-report-id="2024-002">
+											View Details
+										</button>
+									</td>
+								</tr>
+								<tr>
+									<td class="report-id">#2024-003</td>
+									<td class="report-title">Overflowing trash bin in Central Park</td>
+									<td>
+										<span class="category-tag waste">
+											<i class="fas fa-trash"></i>
+											Waste Management
+										</span>
+									</td>
+									<td class="location">Central Park, Section B</td>
+									<td><span class="status-badge pending">Pending</span></td>
+									<td>Dec 14, 2024</td>
+									<td><span class="priority-badge medium">Medium</span></td>
+									<td>
+										<button class="action-btn view-details" data-report-id="2024-003">
+											View Details
+										</button>
+									</td>
+								</tr>
+								<tr>
+									<td class="report-id">#2024-004</td>
+									<td class="report-title">Water leak on Pine Street</td>
+									<td>
+										<span class="category-tag utilities">
+											<i class="fas fa-tint"></i>
+											Water/Utilities
+										</span>
+									</td>
+									<td class="location">Pine St & 2nd Ave</td>
+									<td><span class="status-badge resolved">Resolved</span></td>
+									<td>Dec 12, 2024</td>
+									<td><span class="priority-badge high">High</span></td>
+									<td>
+										<button class="action-btn view-details" data-report-id="2024-004">
+											View Details
+										</button>
+									</td>
+								</tr>
+								<tr>
+									<td class="report-id">#2024-005</td>
+									<td class="report-title">Playground equipment needs repair</td>
+									<td>
+										<span class="category-tag parks">
+											<i class="fas fa-tree"></i>
+											Parks & Recreation
+										</span>
+									</td>
+									<td class="location">Riverside Park</td>
+									<td><span class="status-badge in-progress">In Progress</span></td>
+									<td>Dec 11, 2024</td>
+									<td><span class="priority-badge medium">Medium</span></td>
+									<td>
+										<button class="action-btn view-details" data-report-id="2024-005">
+											View Details
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<!-- Pagination -->
+					<div class="pagination">
+						<button class="page-btn" disabled>
+							<i class="fas fa-chevron-left"></i>
+						</button>
+						<span class="page-info">Page 1 of 12</span>
+						<button class="page-btn">
+							<i class="fas fa-chevron-right"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- Report Details Modal -->
+		<div class="modal-overlay" id="modalOverlay">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title">Report Details</h2>
+					<button class="modal-close" id="modalClose">
+						<i class="fas fa-times"></i>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<div class="report-details">
+						<div class="detail-section">
+							<h3>Report Information</h3>
+							<div class="detail-grid">
+								<div class="detail-item">
+									<label>Report ID:</label>
+									<span id="modalReportId">#2024-001</span>
+								</div>
+								<div class="detail-item">
+									<label>Category:</label>
+									<span id="modalCategory">Street Lighting</span>
+								</div>
+								<div class="detail-item">
+									<label>Priority:</label>
+									<span id="modalPriority" class="priority-badge high">High</span>
+								</div>
+								<div class="detail-item">
+									<label>Submitted:</label>
+									<span id="modalDate">Dec 15, 2024</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="detail-section">
+							<h3>Issue Description</h3>
+							<p id="modalDescription">
+								The streetlight on Oak Street near 5th Avenue has been flickering for
+								several days and went completely dark last night. This creates a safety
+								hazard for pedestrians and drivers, especially during evening hours. The
+								light pole appears to be in good condition, so this seems to be an
+								electrical issue.
+							</p>
+						</div>
+
+						<div class="detail-section">
+							<h3>Location & Evidence</h3>
+							<div class="location-evidence">
+								<div class="location-info">
+									<p><strong>Address:</strong> Oak St & 5th Ave</p>
+									<p><strong>Coordinates:</strong> 40.7128, -74.0060</p>
+								</div>
+								<div class="evidence-image">
+									<img
+										src="/placeholder.svg?height=200&width=300"
+										alt="Report Evidence"
+										id="modalImage"
+									/>
+								</div>
+							</div>
+						</div>
+
+						<div class="detail-section">
+							<h3>Status Management</h3>
+							<div class="status-controls">
+								<div class="status-update">
+									<label for="statusSelect">Update Status:</label>
+									<select id="statusSelect" class="status-select">
+										<option value="pending">Pending</option>
+										<option value="in-progress">In Progress</option>
+										<option value="resolved">Resolved</option>
+										<option value="rejected">Rejected</option>
+									</select>
+								</div>
+								<div class="priority-update">
+									<label for="prioritySelect">Priority:</label>
+									<select id="prioritySelect" class="priority-select">
+										<option value="low">Low</option>
+										<option value="medium">Medium</option>
+										<option value="high">High</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="detail-section">
+							<h3>Admin Comments</h3>
+							<div class="comments-history">
+								<div class="comment">
+									<div class="comment-header">
+										<strong>Admin Johnson</strong>
+										<span class="comment-date">Dec 15, 2024 - 2:30 PM</span>
+									</div>
+									<p>
+										Report received and assigned to electrical maintenance team. Will
+										investigate within 24 hours.
+									</p>
+								</div>
+							</div>
+							<div class="add-comment">
+								<label for="commentText">Add Comment:</label>
+								<textarea
+									id="commentText"
+									placeholder="Add internal comment about this report..."
+									rows="4"
+								></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button class="btn-secondary" id="modalCancel">Cancel</button>
+					<button class="btn-primary" id="modalSave">Save Changes</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Mobile Overlay -->
+		<div class="mobile-overlay" id="mobileOverlay"></div>
+
+		<script src="./src/admin_script.ts"></script>
+	</body>
+</html>
