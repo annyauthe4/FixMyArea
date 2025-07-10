@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 		document.querySelector(".user-email")!.textContent = user.email;
 		document.querySelector(
 			".welcome-title"
-		)!.textContent = `Welcome back, ${user.name}! 👋`;
+		)!.textContent = `Welcome, ${user.name}! 👋`;
 	}
 
 	function updateSummaryCards(summary: any) {

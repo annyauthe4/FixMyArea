@@ -44,6 +44,78 @@ document.addEventListener("DOMContentLoaded", () => {
 	) as HTMLButtonElement;
 	const reportIdSpan = document.getElementById("reportId") as HTMLElement;
 
+	// Form submission
+	reportForm.addEventListener("submit", async (e) => {
+		e.preventDefault();
+
+		if (!validateForm()) return;
+
+		submitButton.classList.add("loading");
+		submitButton.disabled = true;
+
+		try {
+			const formData = new FormData();
+
+			formData.append("title", titleInput.value);
+			formData.append("description", descriptionInput.value);
+			formData.append("category", categorySelect.value);
+			formData.append("location", locationInput.value);
+
+			const priority = (
+				document.querySelector('input[name="priority"]:checked') as HTMLInputElement
+			)?.value;
+
+			if (priority) {
+				formData.append("priority", priority);
+			}
+
+			if (fileInput.files?.length) {
+				formData.append("image", fileInput.files[0]);
+			}
+
+			const token = localStorage.getItem("token");
+			if (!token) throw new Error("User is not logged in");
+
+			const response = await fetch("http://localhost:5000/api/reports/", {
+				method: "POST",
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+				body: formData,
+			});
+
+			if (!response.ok) {
+				const errData = await response.json();
+				throw new Error(errData.error || "Failed to submit report");
+			}
+
+			const result = await response.json();
+
+			// ✅ Only here do we show the modal after successful API call
+			reportIdSpan.textContent = `#${result.id || result.report_id || "XXXX"}`;
+			successModal.classList.add("active");
+			document.body.style.overflow = "hidden";
+
+			// Clear form and localStorage draft
+			reportForm.reset();
+			localStorage.removeItem("reportDraft");
+
+			updateCharacterCount(titleInput, titleCount, 100);
+			updateCharacterCount(descriptionInput, descriptionCount, 1000);
+			updateCharacterCount(locationInput, locationCount, 200);
+
+			uploadArea.style.display = "block";
+			uploadedFile.style.display = "none";
+			imagePreview.src = "";
+		} catch (error: any) {
+			console.error("Submit error:", error);
+			alert(error.message || "There was an error submitting your report.");
+		} finally {
+			submitButton.classList.remove("loading");
+			submitButton.disabled = false;
+		}
+	});
+
 	// Character counting functionality
 	const updateCharacterCount = (
 		input: HTMLInputElement | HTMLTextAreaElement,
@@ -235,52 +307,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	};
 
-	// Form submission
-	reportForm.addEventListener("submit", async (e) => {
-		e.preventDefault();
-
-		if (!validateForm()) {
-			return;
-		}
-
-		// Show loading state
-		submitButton.classList.add("loading");
-		submitButton.disabled = true;
-
-		try {
-			// Simulate API call
-			await new Promise((resolve) => setTimeout(resolve, 2000));
-
-			// Generate report ID
-			const reportId = `2024-${String(Math.floor(Math.random() * 1000)).padStart(
-				3,
-				"0"
-			)}`;
-			reportIdSpan.textContent = `#${reportId}`;
-
-			// Show success modal
-			successModal.classList.add("active");
-			document.body.style.overflow = "hidden";
-
-			// Reset form
-			reportForm.reset();
-			updateCharacterCount(titleInput, titleCount, 100);
-			updateCharacterCount(descriptionInput, descriptionCount, 1000);
-			updateCharacterCount(locationInput, locationCount, 200);
-
-			// Reset file upload
-			uploadArea.style.display = "block";
-			uploadedFile.style.display = "none";
-		} catch (error) {
-			console.error("Error submitting report:", error);
-			alert("There was an error submitting your report. Please try again.");
-		} finally {
-			// Remove loading state
-			submitButton.classList.remove("loading");
-			submitButton.disabled = false;
-		}
-	});
-
 	// Save draft functionality
 	saveDraftButton.addEventListener("click", () => {
 		const formData = new FormData(reportForm);
@@ -338,7 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	viewReportsBtn.addEventListener("click", () => {
 		// Navigate to reports page
 		console.log("Navigate to reports page");
-		window.location.href = "/dashboard";
+		window.location.href = "./user_dashboard.html#my-reports";
 	});
 
 	// Close modal when clicking outside

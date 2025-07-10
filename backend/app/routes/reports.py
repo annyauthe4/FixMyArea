@@ -18,14 +18,17 @@ report_bp = Blueprint('reports', __name__, url_prefix='/api/reports')
 def create_report():
     "A user creates a report"
     current_user_id = get_jwt_identity()
-    data = request.get_json()
-    required_fields = (
-                'title', 'description', 'category', 'location', 'priority'
-            )
-    file = request.files.get('image')
-    if not data or not all(k in data for k in required_fields):
-        return jsonify({'error': 'Missing fields'}), 400
 
+    title = request.form.get('title')
+    description = request.form.get('description')
+    category = request.form.get('category')
+    location = request.form.get('location')
+    priority = request.form.get('priority')
+
+    # Required fields check
+    if not all([title, description, category, location, priority]):
+        return jsonify({'error': 'Missing fields'}), 400
+    file = request.files.get('image')
     # Allowed image types
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
@@ -53,12 +56,12 @@ def create_report():
 
     # Save report
     report = Report(
-        title=data['title'],
-        description=data['description'],
-        category=data['category'],
-        location=data['location'],
-        priority=data['priority'],
-        image_url=image_url
+        title=title,
+        description=description,
+        category=category,
+        location=location,
+        priority=priority,
+        image_url=image_url,
         user_id=current_user_id
         )
     storage.new(report)
