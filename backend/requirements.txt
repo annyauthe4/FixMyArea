@@ -5,3 +5,4 @@ python-dotenv
 Werkzeug
 flask-jwt-extended
 mysqlclient
+flask-cors

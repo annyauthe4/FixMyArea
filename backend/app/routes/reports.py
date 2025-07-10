@@ -30,10 +30,10 @@ def create_report():
         description=data['description'],
         category=data['category'],
         location=data['location'],
-        priority=data['priority']
+        priority=data['priority'],
         image_url=data.get('image_url', ''),
         user_id=current_user_id
-    )
+        )
     storage.new(report)
     return jsonify(report.to_dict()), 201
 
@@ -78,11 +78,22 @@ def recent_reports():
     return jsonify([r.to_dict() for r in recent]), 200
 
 
-@report_bp.route('/recent', methods=['GET'], strict_slashes=False)
+@report_bp.route('/', methods=['GET'], strict_slashes=False)
 @jwt_required()
 def all_user_reports():
     user_id = get_jwt_identity()
-    reports = Report.query.filter_by(user_id=user_id).all()
+    query = Report.query.filter_by(user_id=user_id)
+
+    # Optional filters
+    category = request.args.get('category')
+    status = request.args.get('status')
+
+    if category:
+        query = query.filter_by(category=category)
+    if status:
+        query = query.filter_by(status=status)
+
+    reports = query.all()
     return jsonify([r.to_dict() for r in reports]), 200
 
 

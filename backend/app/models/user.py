@@ -12,6 +12,7 @@ class User(BaseModel):
 
     name = db.Column(db.String(128), nullable=False)
     email = db.Column(db.String(128), unique=True, nullable=False)
+    phone = db.Column(db.String(20), nullable=False)
     password = db.Column(db.String(256), nullable=False)
     is_admin = db.Column(db.Boolean, default=False)
 

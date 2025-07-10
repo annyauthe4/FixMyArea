@@ -16,7 +16,7 @@ auth_bp = Blueprint('auth', __name__, url_prefix='/api/auth')
 @auth_bp.route('/register', methods=['POST'], strict_slashes=False)
 def register():
     data = request.get_json()
-    if not data or not all(k in data for k in ('name', 'email', 'password')):
+    if not data or not all(k in data for k in ('name', 'email', 'password', 'phone')):
         return jsonify({'error': 'Missing fields'}), 400
 
     if User.query.filter_by(email=data['email']).first():
@@ -25,7 +25,8 @@ def register():
     user = User(
         name=data['name'],
         email=data['email'],
-        password=set_password(data['password'])
+        password=set_password(data['password']),
+        phone=data['phone']
     )
     storage.new(user)
     storage.save()

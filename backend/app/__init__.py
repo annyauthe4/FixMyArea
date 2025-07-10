@@ -10,6 +10,7 @@ from flask_migrate import Migrate
 from config import Config
 from flask_jwt_extended import JWTManager
 from app.models.storage_engine.db_storage import DBStorage
+from flask_cors import CORS
 
 storage = DBStorage()
 
@@ -25,6 +26,7 @@ def create_app():
     migrate.init_app(app, db)
     jwt.init_app(app)
     storage.init_app(db)
+    CORS(app)
 
     from app.routes import register_routes
     register_routes(app)
