@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 					<span class="report-category">
 						<i class="fas fa-tag"></i> ${report.category}
 					</span>
-					<span class="report-date">${report.date}</span>
+					<span class="report-date">${report.created_at}</span>
 				</div>
 				<button class="view-btn">View Details</button>
 			</div>`;
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 				<td><span class="status-badge ${report.status.toLowerCase()}">${
 			report.status
 		}</span></td>
-				<td>${report.date}</td>
+				<td>${report.created_at}</td>
 				<td><button class="table-view-btn">View Details</button></td>
 			</tr>`;
 	}
