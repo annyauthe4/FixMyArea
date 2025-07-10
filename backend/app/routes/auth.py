@@ -7,6 +7,7 @@ from app import storage
 from flask_jwt_extended import create_access_token
 from app.utils.utils import set_password, check_password
 from datetime import timedelta
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/api/auth')
@@ -51,3 +52,15 @@ def login():
         'access_token': token,
         'user': user.to_dict()
     }), 200
+
+
+@auth_bp.route('/me', methods=['GET'], strict_slashes=False)
+@jwt_required()
+def get_user():
+    user_id = get_jwt_identity()
+    user = storage.get_by_id(user_id, User)
+    if not user:
+        return jsonify({"error": "User not found"}), 401
+
+    return jsonify(user.to_dict()), 201
+
